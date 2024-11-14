@@ -1,6 +1,3 @@
-
-// reverseString, calculator, caesarCipher, analyzeArray
-
 // Define the capitalize function
 function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
@@ -33,8 +30,22 @@ function caesar(str, shift) {
     }).join('');
 }
 
-const hey = caesar('xyzYX', 3);
-hey
+function convertArray(array) {
+    let object = {
+        average: 0,
+        min: 0,
+        max: 0,
+        length: 0
+    }
+    array.sort((a, b) => a -b);
+    object.average = array.reduce((sum, num) => sum + num, 0) / array.length;
+    object.min = array[0];
+    object.max = array[array.length-1];
+    object.length = array.length;
+    return object;
+}
+let result = convertArray([1,8,3,4,2,6]);
+console.log(typeof result)
 
 // Export the function (and any others you want to export)
-module.exports = { capitalize, reverseString, calculator, caesar};
+module.exports = { capitalize, reverseString, calculator, caesar, convertArray};
